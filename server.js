@@ -5,7 +5,7 @@ const bodyParser  = require('body-parser');
 const cors        = require('cors');
 require('dotenv').config();
 
-const apiRoutes         = require('./routes/api.js');
+const apiRoutes         = require('./dist/routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
@@ -31,7 +31,7 @@ fccTestingRoutes(app);
 apiRoutes(app);  
     
 //404 Not Found Middleware
-app.use(function(req, res, next) {
+app.use(function(req, res) {
   res.status(404)
     .type('text')
     .send('Not Found');
